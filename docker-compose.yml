@@ -1,0 +1,16 @@
+#version: '3'
+#services:
+  9tac:
+    image: 'dazorni/9tac'
+    environment:
+      - "PORT:5000"
+      - "mongo:mongo"
+    ports:
+      - "80:5000"
+    links:
+      - mongo
+
+  mongo:
+    image: 'mongo'
+    volumes:
+      - /home/ubuntu/data/db:/data/db
